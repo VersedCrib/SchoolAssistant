@@ -48,10 +48,10 @@ public class AuthorizationActivity extends AppCompatActivity {
 
                 if(verification(login) && verification(password)) {
                     if(firsTheards){
-                        CheckUses checkUses = new CheckUses();
-                        checkUses.execute(login, password);
+                        CheckUsers checkUsers = new CheckUsers();
+                        checkUsers.execute(login, password);
                         try {
-                            if(checkUses.get()){
+                            if(checkUsers.get()){
                                 Intent i = new Intent(AuthorizationActivity.this, MainActivity.class);
                                 startActivity(i);
                             } else {
@@ -78,7 +78,6 @@ public class AuthorizationActivity extends AppCompatActivity {
             @Override
             public void onClick(View view){
                 Intent i = new Intent(AuthorizationActivity.this, RegistrationActivity.class);
-                //i.putExtra(DBHelper.class.getSimpleName(), dbhelper);
                 startActivity(i);
             }
         });
@@ -131,7 +130,7 @@ public class AuthorizationActivity extends AppCompatActivity {
     }
 
 
-    private class CheckUses extends AsyncTask<String, Void, Boolean> {
+    private class CheckUsers extends AsyncTask<String, Void, Boolean> {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();

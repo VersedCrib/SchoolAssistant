@@ -49,7 +49,7 @@ public class RegistrationActivity extends AppCompatActivity {
                 String password = passEd.toString();
 
                 if(firsTheards && verification(login) && verification(password)) {
-                    new RegistrationActivity.addUses().execute(login, password);
+                    new RegistrationActivity.addUsers().execute(login, password);
 
                     Intent i = new Intent(RegistrationActivity.this, AuthorizationActivity.class);
                     //i.putExtra(DBHelper.class.getSimpleName(), dbhelper);
@@ -80,7 +80,7 @@ public class RegistrationActivity extends AppCompatActivity {
     }
 
 
-    private class addUses extends AsyncTask<String, Void, Void> {
+    private class addUsers extends AsyncTask<String, Void, Void> {
         @Override
         protected void onPreExecute() {
             //super.onPreExecute();
@@ -102,14 +102,14 @@ public class RegistrationActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-
             sqLiteDatabase.insert(DBHelper.TABLE_USERS, null, contentValues);
 
+            firsTheards = true;
             return null;
         }
 
-        protected void onPostExecute(Void image) {
-            firsTheards = true;
+        protected void onPostExecute(Void value) {
+            //firsTheards = true;
         }
 
         @Override
