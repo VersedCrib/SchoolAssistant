@@ -15,13 +15,12 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 
 import java.math.BigInteger;
-import java.nio.charset.StandardCharsets;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
 public class RegistrationActivity extends AppCompatActivity {
 
-    boolean firsTheards = true;
+    boolean firstThreads = true;
     DBHelper dbhelper;
 
     @Override
@@ -30,9 +29,7 @@ public class RegistrationActivity extends AppCompatActivity {
         setContentView(R.layout.activity_registration);
 
         Intent i = this.getIntent();
-        //Bundle bundle = i.getExtras();
 
-        //dbhelper = (DBHelper) bundle.getSerializable(DBHelper.class.getSimpleName());;
         dbhelper = new DBHelper(this);
 
         Button checkInf = (Button) findViewById(R.id.b_check2);
@@ -48,11 +45,10 @@ public class RegistrationActivity extends AppCompatActivity {
                 Editable passEd = ePass.getText();
                 String password = passEd.toString();
 
-                if(firsTheards && verification(login) && verification(password)) {
+                if(firstThreads && verification(login) && verification(password)) {
                     new RegistrationActivity.addUsers().execute(login, password);
 
                     Intent i = new Intent(RegistrationActivity.this, AuthorizationActivity.class);
-                    //i.putExtra(DBHelper.class.getSimpleName(), dbhelper);
                     startActivity(i);
                 } else {
                     TextView twInf = (TextView) findViewById(R.id.tw_sost2);
@@ -84,7 +80,7 @@ public class RegistrationActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             //super.onPreExecute();
-            firsTheards = false;
+            firstThreads = false;
         }
 
         protected Void doInBackground(String... args) {
@@ -104,26 +100,20 @@ public class RegistrationActivity extends AppCompatActivity {
 
             sqLiteDatabase.insert(DBHelper.TABLE_USERS, null, contentValues);
 
-            firsTheards = true;
+            firstThreads = true;
             return null;
         }
 
         protected void onPostExecute(Void value) {
-            //firsTheards = true;
         }
 
         @Override
         protected void onProgressUpdate(Void... values) {
-            //super.onProgressUpdate(values);
-
         }
     }
 
     private String hashFun( String s) throws NoSuchAlgorithmException {
         MessageDigest md = MessageDigest.getInstance( "SHA-256" );
-        //String text = "Text to hash, cryptographically.";
-
-        // Change this to UTF-16 if needed
         md.update(s.getBytes());
         byte[] digest = md.digest();
         String hex = String.format( "%064x", new BigInteger( 1, digest ) );

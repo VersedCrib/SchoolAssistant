@@ -22,7 +22,7 @@ import java.util.concurrent.ExecutionException;
 
 public class AuthorizationActivity extends AppCompatActivity {
 
-    boolean firsTheards = true;
+    boolean firstThreads = true;
     DBHelper dbhelper;
     String login;
     String password;
@@ -47,16 +47,17 @@ public class AuthorizationActivity extends AppCompatActivity {
                 password = passEd.toString();
 
                 if(verification(login) && verification(password)) {
-                    if(firsTheards){
+                    if(firstThreads){
                         CheckUsers checkUsers = new CheckUsers();
                         checkUsers.execute(login, password);
                         try {
                             if(checkUsers.get()){
-                                Intent i = new Intent(AuthorizationActivity.this, MainActivity.class);
+                                Intent i = new Intent(AuthorizationActivity.this, CalendarActivity.class);
                                 startActivity(i);
                             } else {
                                 TextView twInf = (TextView) findViewById(R.id.tw_sost);
                                 twInf.setText("Состояние введенных данных: данные не найдены");
+                                twInf.setBackgroundColor(Color.WHITE);
                             }
                         } catch (ExecutionException e) {
                             e.printStackTrace();
@@ -105,7 +106,7 @@ public class AuthorizationActivity extends AppCompatActivity {
                     Log.d("mLog","0 rows");
                 }
 
-                Log.d("mLog",  "now - " + "login = " + login + ", password = " + password + ", firsTheards = " + firsTheards);
+                Log.d("mLog",  "now - " + "login = " + login + ", password = " + password + ", firsTheards = " + firstThreads);
 
                 cursor.close();
             }
@@ -134,7 +135,7 @@ public class AuthorizationActivity extends AppCompatActivity {
         @Override
         protected void onPreExecute() {
             super.onPreExecute();
-            firsTheards = false;
+            firstThreads = false;
         }
 
         protected Boolean doInBackground(String... args) {
@@ -170,7 +171,7 @@ public class AuthorizationActivity extends AppCompatActivity {
             cursor.close();
            // ContentValues contentValues = new ContentValues();
 
-            firsTheards = true;
+            firstThreads = true;
             return isUsers;
         }
 
