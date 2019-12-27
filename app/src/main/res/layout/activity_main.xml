@@ -20,7 +20,7 @@
                 android:layout_height="match_parent"
                 android:layout_weight="1"
                 android:background="#4CAF50"
-                android:text="<-" />
+                android:text="->" />
 
             <TextView
                 android:id="@+id/tw_data"
@@ -133,13 +133,13 @@
             android:id="@+id/tw_action"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="20dp"
             android:text="События:" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="60dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="30dp"
             android:background="#4CAF50"
             android:orientation="horizontal">
 
@@ -162,7 +162,7 @@
             <Button
                 android:id="@+id/button7"
                 android:layout_width="wrap_content"
-                android:layout_height="match_parent"
+                android:layout_height="32dp"
                 android:layout_weight="1"
                 android:background="#4CAF50"
                 android:text="расписание" />

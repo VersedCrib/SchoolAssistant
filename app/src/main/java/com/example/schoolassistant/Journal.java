@@ -9,18 +9,35 @@ public class Journal implements Serializable {
     public Journal(int numDay){
         day = new Day[numDay];
 
-        for(Day d: day){
-            for(int i = 0 ; i<d.lesson.length; i++) {
-                d.lesson[i] = "Math";
-                d.homework[i] = "";
+
+        for(int i = 0; i<numDay; i++){
+            day[i] = new Day();
+
+            for(int k = 0 ; k<7; k++) {
+                day[i].setLesson(k,"Math");
+                day[i].setHomework(k,"");
             }
         }
     }
 
 
     class Day implements Serializable{
-        String lesson[] = new String[7];
-        String homework[] = new String[7];
+        String lesson[];
+        String homework[];
+
+        public Day(){
+            lesson = new String[7];
+            homework = new String[7];
+
+            for (String s: lesson){
+                s = "";
+            }
+
+            for (String s: homework){
+                s = "";
+            }
+
+        }
 
         public void setLesson(int num, String s) {
             lesson[num] = s;
