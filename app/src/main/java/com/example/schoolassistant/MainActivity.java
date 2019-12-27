@@ -15,6 +15,11 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+/*
+        for(Timetable t: timetable){
+            t = new Timetable();
+        }
+
 
         timetable[0].homework = (TextView) findViewById(R.id.tw_homework1);
         timetable[0].lesson = (TextView) findViewById(R.id.tw_lesson1);
@@ -42,7 +47,7 @@ public class MainActivity extends AppCompatActivity {
             timetable[i].lesson.setText(journal.day[day].getLesson(i));
         }
 
-
+*/
 
     }
 
