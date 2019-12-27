@@ -52,7 +52,7 @@ public class AuthorizationActivity extends AppCompatActivity {
                         checkUsers.execute(login, password);
                         try {
                             if(checkUsers.get()){
-                                Intent i = new Intent(AuthorizationActivity.this, CalendarActivity.class);
+                                Intent i = new Intent(AuthorizationActivity.this, MainActivity.class);
                                 startActivity(i);
                             } else {
                                 TextView twInf = (TextView) findViewById(R.id.tw_sost);
@@ -106,7 +106,8 @@ public class AuthorizationActivity extends AppCompatActivity {
                     Log.d("mLog","0 rows");
                 }
 
-                Log.d("mLog",  "now - " + "login = " + login + ", password = " + password + ", firsTheards = " + firstThreads);
+                Log.d("mLog",  "now - " + "login = " + login +
+                        ", password =    " + password + ", firstThreads = " + firstThreads);
 
                 cursor.close();
             }
