@@ -4,21 +4,41 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/tw_dayLes"
+        android:id="@+id/tw_les"
         android:layout_width="match_parent"
         android:layout_height="40dp"
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView4"
-        android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="30dp"
-        android:text="TextView" />
-
-    <Button
-        android:id="@+id/button2"
+        android:id="@+id/textView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Button" />
+        android:layout_marginTop="30dp"
+        android:text="Состояние" />
+
+    <TextView
+        android:id="@+id/tw_infoLes"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_marginTop="0dp"
+        android:text="Введите заметку на данный урок" />
+
+    <TextView
+        android:id="@+id/tw_mes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Заметка" />
+
+    <EditText
+        android:id="@+id/ed_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/b_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Ввести заметку" />
 </LinearLayout>

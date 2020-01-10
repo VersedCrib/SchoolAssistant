@@ -26,6 +26,10 @@
         <activity android:name=".DayActivity">
         </activity>
 
+        <activity android:name=".LessonActivity">
+        </activity>
+
+        <receiver android:name=".TimeNotification" />
 
 
     </application>

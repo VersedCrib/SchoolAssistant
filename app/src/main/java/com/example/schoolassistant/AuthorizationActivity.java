@@ -53,6 +53,7 @@ public class AuthorizationActivity extends AppCompatActivity {
                         try {
                             if(checkUsers.get()){
                                 Intent i = new Intent(AuthorizationActivity.this, MainActivity.class);
+                                //i.putExtra("name", login);
                                 startActivity(i);
                             } else {
                                 TextView twInf = (TextView) findViewById(R.id.tw_sost);

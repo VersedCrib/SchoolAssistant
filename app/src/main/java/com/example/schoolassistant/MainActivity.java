@@ -10,17 +10,36 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class MainActivity extends AppCompatActivity {
     int numDay = 1;
     Day week[] = new Day[5];
     String weekS[] = new String[5];
+    String name;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        
+        //Bundle arguments = getIntent().getExtras();
+       // name = arguments.getString("name");
+
+        TextView tw_date = (TextView)findViewById(R.id.tw_date) ;
+        SimpleDateFormat format = new SimpleDateFormat("dd.MM.yyyy");
+        int d,M,y;
+        String s = format.format(new Date());
+        d  =  Integer.parseInt(Character.toString(s.charAt(0)) + Character.toString(s.charAt(1)));
+        M = Integer.parseInt(Character.toString(s.charAt(3)) + Character.toString(s.charAt(4)));
+        y = Integer.parseInt(Character.toString(s.charAt(6)) + Character.toString(s.charAt(7)) +
+                Character.toString(s.charAt(8))+
+                Character.toString(s.charAt(9)));
+
+        numDay = weekday( y, M,  d);
+        tw_date.setTextSize(30);
+        tw_date.setText( dayInWeek(numDay) + " " +  format.format(new Date()) );
 
         for(int i =0; i<week.length; i++){
             week[i] = new Day();
@@ -43,7 +62,11 @@ public class MainActivity extends AppCompatActivity {
                 String strText = textView.getText().toString();
 
                 Intent i = new Intent(MainActivity.this, DayActivity.class);
+                i.putExtra("dayNow", dayInWeek(numDay));
+                //i.putExtra("dayClick", dayInWeek(position));
                 i.putExtra(Day.class.getSimpleName(), week[dayInWeek(strText)]);
+                //i.putExtra("name",name);
+
                 startActivity(i);
 
             }
@@ -205,5 +228,14 @@ public class MainActivity extends AppCompatActivity {
                 break;
         }
         return nameDay;
+    }
+
+    static int weekday(int year, int month, int day) {
+        if (month < 3) {
+            --year;
+            month += 10;
+        } else
+            month -= 2;
+        return ((day + 31 * month / 12 + year + year / 4 - year / 100 + year / 400) % 7);
     }
 }
