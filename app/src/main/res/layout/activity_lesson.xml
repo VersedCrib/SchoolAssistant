@@ -10,23 +10,17 @@
         android:text="TextView" />
 
     <TextView
-        android:id="@+id/textView"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="30dp"
-        android:text="Состояние" />
-
-    <TextView
         android:id="@+id/tw_infoLes"
         android:layout_width="match_parent"
-        android:layout_height="40dp"
-        android:layout_marginTop="0dp"
+        android:layout_height="29dp"
+        android:layout_marginTop="30dp"
         android:text="Введите заметку на данный урок" />
 
     <TextView
         android:id="@+id/tw_mes"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="Заметка" />
 
     <EditText
@@ -37,8 +31,43 @@
         android:inputType="textPersonName" />
 
     <Button
-        android:id="@+id/b_message"
+        android:id="@+id/b_add"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Ввести заметку" />
+
+    <TextView
+        android:id="@+id/textView7"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Введите дату заметки в формате dd:mm:yyyy" />
+
+    <EditText
+        android:id="@+id/ed_date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <TextView
+        android:id="@+id/textView8"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="Введите время заметки в формате hh:mm" />
+
+    <EditText
+        android:id="@+id/ed_time"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName" />
+
+    <Button
+        android:id="@+id/b_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Добавить заметку" />
+
 </LinearLayout>
