@@ -37,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
                 Character.toString(s.charAt(8))+
                 Character.toString(s.charAt(9)));
 
-        numDay = weekday( y, M,  d);
+        numDay = weekday(y, M, d);
         tw_date.setTextSize(30);
         tw_date.setText( dayInWeek(numDay) + " " +  format.format(new Date()) );
 
